@@ -2,7 +2,10 @@ import CursorDot from "./components/CursorDot";
 import Nav from "./components/Nav";
 import { useCursorDot } from "./hooks/useCursorDot";
 import { useScrollReveal } from "./hooks/useScrollReveal";
+import About from "./sections/About";
 import Hero from "./sections/Hero";
+import Projects from "./sections/Projects";
+import Skills from "./sections/Skills";
 
 export default function App() {
   useCursorDot();
@@ -15,176 +18,11 @@ export default function App() {
       <Hero />
 
       <div className="band" />
-
-      <div className="wrap" id="about">
-        <div className="about-layout">
-          <div className="reveal">
-            <p className="sec-label">01 — about</p>
-            <h2 className="sec-title">
-              <strong>Code</strong> meets<br />
-              <em>intention.</em>
-            </h2>
-            <div className="about-prose">
-              <p>
-                I'm <strong>Hipekwen-Odidika Perpetual</strong> — a Software Developer who believes the gap between a working program and a well-made one is where craftsmanship lives. I don't just write code that runs; I write code that holds up.
-              </p>
-              <p className="pull">
-                "Good software is invisible — it just works, exactly when it should."
-              </p>
-              <p>
-                Currently sharpening my skills in <strong>full-stack development</strong> — building backends that handle real load, frontends that feel intuitive, and the connective tissue between them. I study every system I touch, because understanding the why makes the what cleaner.
-              </p>
-              <p>
-                Outside of code: curious about system design, interested in building tools that open access, and always looking for the next hard problem worth solving.
-              </p>
-            </div>
-          </div>
-
-          <div className="reveal" style={{ transitionDelay: "0.15s" }}>
-            <div className="badge-stack">
-              {[
-                ["Degree Programme", "Software Dev"],
-                ["Focus Area", "Full Stack"],
-                ["Status", "Open to Work"],
-                ["Works best", "In the details"],
-                ["Learning mode", "Always on"],
-              ].map(([n, v]) => (
-                <div className="badge-item" key={n}>
-                  <span className="badge-name">{n}</span>
-                  <span className="badge-val">{v}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-
+      <About />
       <div className="band" />
-
-      <div className="wrap" id="skills">
-        <p className="sec-label reveal">02 — skills</p>
-        <h2 className="sec-title reveal"><strong>The stack</strong> <em>I work in.</em></h2>
-
-        <div className="skills-mosaic reveal" style={{ transitionDelay: "0.1s" }}>
-          <div className="sk sk-featured">
-            <div className="sk-num">01</div>
-            <div className="sk-name">Full-Stack Web Development</div>
-            <div className="sk-tags" style={{ flexDirection: "column", gap: "0.5rem", marginTop: "1rem" }}>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.35rem" }}>
-                <span className="t t-dark">React</span>
-                <span className="t t-dark">Node.js</span>
-                <span className="t t-dark">Express</span>
-              </div>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.35rem" }}>
-                <span className="t t-dark">REST APIs</span>
-                <span className="t t-dark">TypeScript</span>
-              </div>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.35rem" }}>
-                <span className="t t-dark">HTML/CSS</span>
-                <span className="t t-dark">Tailwind</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="sk">
-            <div className="sk-num">02</div>
-            <div className="sk-name">Languages</div>
-            <div className="sk-tags">
-              <span className="t t-light">Python</span>
-              <span className="t t-light">JavaScript</span>
-              <span className="t t-sand">Java</span>
-              <span className="t t-sand">C</span>
-            </div>
-          </div>
-
-          <div className="sk">
-            <div className="sk-num">03</div>
-            <div className="sk-name">Databases</div>
-            <div className="sk-tags">
-              <span className="t t-light">MySQL</span>
-              <span className="t t-light">PostgreSQL</span>
-              <span className="t t-sand">MongoDB</span>
-            </div>
-          </div>
-
-          <div className="sk">
-            <div className="sk-num">04</div>
-            <div className="sk-name">CS Foundations</div>
-            <div className="sk-tags">
-              <span className="t t-sand">OOP</span>
-              <span className="t t-sand">Data Structures</span>
-              <span className="t t-light">Algorithms</span>
-              <span className="t t-sand">UML</span>
-            </div>
-          </div>
-
-          <div className="sk">
-            <div className="sk-num">05</div>
-            <div className="sk-name">Dev Tools</div>
-            <div className="sk-tags">
-              <span className="t t-light">Git</span>
-              <span className="t t-sand">GitHub</span>
-              <span className="t t-sand">Linux</span>
-              <span className="t t-gold">VS Code</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
+      <Skills />
       <div className="band" />
-
-      <div className="wrap" id="projects">
-        <p className="sec-label reveal">03 — projects</p>
-        <h2 className="sec-title reveal"><strong>Selected</strong> <em>work.</em></h2>
-
-        <div className="proj-grid">
-          {[
-            {
-              n: "01",
-              t: "Health Appointment Tracker",
-              d: "Web app for managing medical appointments, medication schedules, and health records. Patient-facing dashboard with a clean, accessible UI and a RESTful backend.",
-              tags: [["light", "React"], ["light", "Node.js"], ["sand", "MySQL"], ["sand", "REST API"]],
-            },
-            {
-              n: "02",
-              t: "Dev Notes — CLI Tool",
-              d: "Terminal-based note-taking and snippet manager for developers. Tag-based organisation, fuzzy search, and export support. Built to stay out of the way and just work.",
-              tags: [["light", "Python"], ["sand", "CLI"], ["sand", "SQLite"]],
-            },
-            {
-              n: "03",
-              t: "Budget Tracker Web App",
-              d: "Personal finance dashboard for tracking income, spending categories, and monthly budgets. Data visualisation with charts, CSV import, and recurring transaction support.",
-              tags: [["light", "JavaScript"], ["light", "Express"], ["sand", "PostgreSQL"], ["sand", "Chart.js"]],
-            },
-            {
-              n: "04",
-              t: "Student Portal System",
-              d: "Coursework project: multi-role student portal with timetables, module resources, and grade views. Designed with full UML suite before a single line of code was written.",
-              tags: [["light", "Java"], ["sand", "UML"], ["sand", "MySQL"], ["light", "OOP"]],
-            },
-          ].map((p, i) => (
-            <a
-              key={p.n}
-              href="#"
-              className="proj-card reveal"
-              style={{ transitionDelay: `${0.05 + i * 0.05}s` }}
-            >
-              <div className="proj-top">
-                <div className="proj-num">{p.n}</div>
-                <span className="proj-arrow">↗</span>
-              </div>
-              <div className="proj-title">{p.t}</div>
-              <div className="proj-desc">{p.d}</div>
-              <div className="proj-stack">
-                {p.tags.map(([k, label]) => (
-                  <span key={label} className={`t t-${k}`}>{label}</span>
-                ))}
-              </div>
-            </a>
-          ))}
-        </div>
-      </div>
+      <Projects />
 
       <div id="exp-bg">
         <div className="exp-wrap" id="experience">
