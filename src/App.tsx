@@ -1,35 +1,9 @@
-import { useEffect } from "react";
+import { useCursorDot } from "./hooks/useCursorDot";
+import { useScrollReveal } from "./hooks/useScrollReveal";
 
 export default function App() {
-  useEffect(() => {
-    const dot = document.getElementById("cursor-dot");
-    const onMove = (e: MouseEvent) => {
-      if (!dot) return;
-      dot.style.left = e.clientX + "px";
-      dot.style.top = e.clientY + "px";
-    };
-    document.addEventListener("mousemove", onMove);
-
-    const dg = document.getElementById("dot-grid");
-    if (dg && dg.childElementCount === 0) {
-      for (let i = 0; i < 40; i++) dg.appendChild(document.createElement("span"));
-    }
-
-    const obs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) e.target.classList.add("visible");
-        });
-      },
-      { threshold: 0.08, rootMargin: "0px 0px -40px 0px" }
-    );
-    document.querySelectorAll(".reveal").forEach((el) => obs.observe(el));
-
-    return () => {
-      document.removeEventListener("mousemove", onMove);
-      obs.disconnect();
-    };
-  }, []);
+  useCursorDot();
+  useScrollReveal();
 
   return (
     <>
